@@ -1,6 +1,8 @@
 <?php
 session_start();
+//  清除SESSION
 unset( $_SESSION['admin']);
-header('Location:https://www.google.com/')
+// 跳轉頁面
+header('Location:login.php')
 
 ?>
