@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/db_connect.php';
+$pageName = 'ab-list';
 
 $stmt = $pdo->query("SELECT * FROM snail_class ORDER BY sid DESC");
 
