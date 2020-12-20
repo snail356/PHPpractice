@@ -24,6 +24,9 @@ if (!isset($pageName)) $pageName = '';
       <li class="nav-item  <?= $pageName == 'ab-list' ? 'active' : ''; ?>">
         <a class="nav-link" href="<?php WEB_ROOT ?>ab-list.php">課程列表 </a>
       </li>
+      <li class="nav-item  <?= $pageName == 'ab-insert' ? 'active' : ''; ?>">
+        <a class="nav-link" href="<?php WEB_ROOT ?>ab-insert.php">新增課程 </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li>
