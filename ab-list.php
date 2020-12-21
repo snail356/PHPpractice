@@ -54,7 +54,7 @@ $rows = $stmt->fetchAll();
                     <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>"><a class="page-link" href="?page=1 ">
                             <i class="fas fa-caret-square-left"></i></a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="?page=<?= $page - 1 ?> ">
+                    <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>" ><a class="page-link" href="?page=<?= $page - 1 ?> ">
                             <i class="fas fa-caret-left"></i></a>
                     </li>
 
@@ -68,7 +68,7 @@ $rows = $stmt->fetchAll();
                     <?php endfor ?>
 
 
-                    <li class="page-item"><a class="page-link" href="?page=<?= $page + 1 ?> ">
+                    <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>" ><a class="page-link" href="?page=<?= $page + 1 ?> ">
                             <i class="fas fa-caret-right"></i></a>
                     </li>
                     <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>"><a class="page-link" href="?page=<?= $totalPages ?> ">
