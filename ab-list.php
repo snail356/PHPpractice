@@ -1,3 +1,4 @@
+  
 <?php
 require __DIR__ . '/db_connect.php';
 $pageName = 'ab-list';
@@ -59,13 +60,18 @@ $rows = $stmt->fetchAll();
                     </li>
 
                     <!-- 計算頁數的迴圈 -->
-                    <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                    <?php for ($i = $page-5; $i <= $page+5; $i++) : 
+                        if($i >= 1 and $i <= $totalPages ):
+                        ?>
+
+
                         <!-- ?是在同一頁面有不同的值 -->
                         <li class="page-item <?= $page == $i ? 'active' : '' ?>">
                             <a class="page-link" href="?page=<?= $i ?>">
                                 <?= $i ?></a>
                         </li>
-                    <?php endfor ?>
+                    <?php endif;
+                    endfor ?>
 
 
                     <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>" ><a class="page-link" href="?page=<?= $page + 1 ?> ">
