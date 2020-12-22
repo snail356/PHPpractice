@@ -36,3 +36,6 @@ INSERT INTO `snail_class` (`sid`, `category`, `classname`, `date`, `amount`) VAL
 
 --  刪除
 DELETE FROM `snail_class` WHERE sid = $sid
+
+-- 更新
+UPDATE `snail_class` SET `sid`=[value-1],`category`=[value-2],`classname`=[value-3],`date`=[value-4],`amount`=[value-5] WHERE 1

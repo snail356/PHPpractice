@@ -8,7 +8,7 @@ $output = [
     'error' => '參數不足',
 ];
 
-if(! isset($_POST['category']) or ! isset($_POST['date'])){
+if(! isset($_POST['sid']) or isset($_POST['category']) or ! isset($_POST['date'])){
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -26,10 +26,8 @@ if(! isset($_POST['category']) or ! isset($_POST['date'])){
 
 
 
-$sql = "INSERT INTO `snail_class`( `category`, `classname`, `date`, `amount`
-)  VALUES (
-    ?,?,?,?
-);";
+$sql = "UPDATE `snail_class` SET `category`=?,`classname`=?,`date`=?,`amount`=? WHERE `sid`=?";
+
 
 $stmt = $pdo->prepare($sql);
 
@@ -39,12 +37,15 @@ $stmt->execute([
         $_POST['date'],
         // empty($_POST['birthday']) ? NULL : $_POST['birthday'],
         $_POST['amount'],
+        $_POST['sid'],
 ]);
 
 $output['rowCount'] = $stmt->rowCount();
 if($stmt->rowCount()){
     $output['success'] = true;
     unset($output['error']);
+}else{
+    $output['error'] = '資料沒有修改';
 }
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
@@ -55,3 +56,4 @@ echo json_encode($output, JSON_UNESCAPED_UNICODE);
 
 
 
+ 

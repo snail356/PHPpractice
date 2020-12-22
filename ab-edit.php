@@ -108,7 +108,7 @@ if(empty($row)){
             // 建立一個formdata的物件 拿這個頁面的第一個表單
             const fd = new FormData(document.form1);
 
-            fetch('ab-insert-api.php', {
+            fetch('ab-edit-api.php', {
                     method: 'POST',
                     body: fd
                 })
@@ -116,14 +116,14 @@ if(empty($row)){
                 .then(obj => {
                     console.log(obj);
                     if (obj.success) {
-                        //新增成功
+                        //修改成功
                         info.classList.remove('alert-danger');
                         info.classList.add('alert-success');
-                        info.innerHTML = '新增成功';
+                        info.innerHTML = '修改成功';
                     } else {
                         info.classList.remove('alert-success');
                         info.classList.add('alert-danger');
-                        info.innerHTML = '新增失敗';
+                        info.innerHTML = obj.error || '修改失敗';
 
                     }
                     info.style.display = 'block';
