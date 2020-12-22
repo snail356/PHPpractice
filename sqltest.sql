@@ -32,3 +32,7 @@ INSERT INTO `snail_class` (`sid`, `category`, `classname`, `date`, `amount`) VAL
  )  VALUES (
      ?,?,?,?
  );
+
+
+--  刪除
+DELETE FROM `snail_class` WHERE sid = $sid

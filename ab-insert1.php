@@ -7,22 +7,22 @@ $pageName = 'ab-insert';
 
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
-<?php include __DIR__ . '/parts/navbar.php'; ?>
+
 <style>
     .form-text {
         color: red;
     }
 </style>
 
-
+<?php include __DIR__ . '/parts/navbar.php'; ?>
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-lg-6">
-
-            <div class="alert alert-danger" role="alert" id="info" style="display: none;">
-                錯誤
-            </div>
-
+            <?php if (isset($errorMsg)) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $errorMsg ?>
+                </div>
+            <?php endif ?>
 
 
             <div class="card">
@@ -63,12 +63,10 @@ $pageName = 'ab-insert';
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 
 <script>
-    const info = document.querySelector('#info');
     // document.querySelector('#category').style.bordercolor = 'red'
     const category = document.querySelector('#category');
 
     function checkForm() {
-        info.style.display = 'none';
         // 設定此變數判斷是否通過檢查
         let isPass = true;
 
@@ -89,24 +87,11 @@ $pageName = 'ab-insert';
                     method: 'POST',
                     body: fd
                 })
-                .then(r => r.json())
+                .then(r => r.text())
                 .then(obj => {
                     console.log(obj);
-                    if (obj.success) {
-                        //新增成功
-                        info.classList.remove('alert-danger');
-                        info.classList.add('alert-success');
-                        info.innerHTML = '新增成功';
-                    } else {
-                        info.classList.remove('alert-success');
-                        info.classList.add('alert-danger');
-                        info.innerHTML = '新增失敗';
-
-                    }
-                    info.style.display = 'block';
                 });
-
-
+                console.log(fd)
 
         }
     }

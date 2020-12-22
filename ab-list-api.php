@@ -19,7 +19,7 @@ if ($page > $totalPages) $page = $totalPages;
 
 // SELECT * FROM `snail_class` LIMIT 4,3  LIMIT(索引值,筆數)
 $p_sql = sprintf(
-    "SELECT * FROM snail_class LIMIT %s, %s",
+    "SELECT * FROM snail_class ORDER BY sid DESC LIMIT %s, %s",
     ($page - 1) * $perPage,
     $perPage
 );
