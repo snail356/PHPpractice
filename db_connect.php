@@ -13,3 +13,8 @@ $pdo_options = [
 ];
 
 $pdo = new PDO($dsn, $db_user, $db_pass, $pdo_options);
+
+// 不能呼叫兩次，所以要先判斷
+if (!isset($_SESSION)) {
+    session_start();
+}

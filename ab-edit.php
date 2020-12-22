@@ -1,6 +1,27 @@
 <?php
 
 $pageName = 'ab-insert';
+require __DIR__. '/db_connect.php';
+
+if(!isset($_GET['sid'])){
+    header('Location:ab-list.php');
+    exit;
+}
+
+$sid = intval($_GET['sid']);
+
+// $stmt= $pdo->query("SELECT * FROM snail_class WHERE sid=$sid ");
+// 拿到資料row
+$row = $pdo
+    ->query("SELECT * FROM snail_class WHERE sid=$sid ")
+    ->fetch();
+// 若啥都沒拿到就轉向
+if(empty($row)){
+    header('Location:ab-list.php');
+    exit;
+}
+
+
 
 
 ?>
@@ -23,19 +44,23 @@ $pageName = 'ab-insert';
 
 
 
-            <div class="card">
+            <div class="card"> 
                 <div class="card-body">
-                    <h5 class="card-title">新增課程</h5>
+                    <h5 class="card-title">編輯課程</h5>
 
                     <form name="form1" novalidate onsubmit="checkForm();return false;">
+                    <!-- <form name="form1" method="post"> -->
+                        <input type="hidden" name="sid" value="<?= $sid ?>"
                         <div class="form-group">
                             <label for="category">課程分類</label>
-                            <input type="text" class="form-control" id="category" name="category">
+                            <input type="text" class="form-control" id="category" name="category"
+                            value=" <?= htmlentities($row['category']) ?>">
                             <small class="form-text error-msg" style="display: none">請選擇課程分類</small>
                         </div>
                         <div class="form-group">
                             <label for="classname">課程名稱</label>
-                            <input type="text" class="form-control" id="classname" name="classname">
+                            <input type="text" class="form-control" id="classname" name="classname"
+                            value=" <?= htmlentities($row['classname']) ?>">
                         </div>
                         <div class="form-group">
                             <label for="date">上課日期</label>

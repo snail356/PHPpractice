@@ -92,6 +92,7 @@
                       <th scope="col">課程名稱</th>
                       <th scope="col">上課日期</th>
                       <th scope="col">數量</th>
+                      <th scope="col"><i class="fas fa-pen-square"></i></th>
                   </tr>
               </thead>
               <tbody>
@@ -100,14 +101,25 @@
                       <tr>
                           <!--刪除1 啥都不做 javascript:   按下後執行removeitemfunction(實際參數) -->
                           <!-- <td class="remove-icon"><a href="javascript:" onclick="removeItem(event)"> -->
-                          <td class="remove-icon"><a href="ab-delete.php?sid=<?= $r['sid']  ?>" onclick="del_it()">
-                                  <i class="fas fa-trash-alt"></a></i>
+
+                          <!-- 刪除2 -->
+                          <!-- <td class="remove-icon"><a href="ab-delete.php?sid=<?= $r['sid']  ?>" onclick="del_it(event,<?= $r['sid']  ?>)"> -->
+
+                          <td class="remove-icon">
+                              <a href="javascript:del_it(<?= $r['sid']  ?>)">
+                                  <i class="fas fa-trash-alt"></i>
+                              </a>
                           </td>
                           <td><?= $r['sid'] ?></td>
                           <td><?= htmlentities($r['category']) ?></td>
                           <td><?= strip_tags($r['classname']) ?></td>
                           <td><?= $r['date'] ?></td>
                           <td><?= $r['amount'] ?></td>
+                          <td class="">
+                              <a href="ab-edit.php?sid=<?= $r['sid'] ?>">
+                                  <i class="fas fa-pen-square"></i>
+                              </a>
+                          </td>
                       </tr>
 
                   <?php endforeach ?>
@@ -129,11 +141,16 @@
       //     //   上一層是tr remove()是將他從DOM移除
       //       t.closest('tr').remove();
       //   }
+      // 刪除2
+      //   function del_it(event, sid) {
+      //       if (!confirm(`是否要刪除編號為 ${sid} 的資料?`)) {
+      //           event.preventDefault();
+      //       }
+      //   }
 
-      function del_it() {
-          if (!confirm('是否要刪除資料?')) {
-              event.preventDefault();
-
+      function del_it(sid) {
+          if (confirm(`是否要刪除編號為 ${sid} 的資料?`)) {
+              location.href = 'ab-delete.php?sid=' + sid;
           }
       }
   </script>
