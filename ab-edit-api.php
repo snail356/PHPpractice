@@ -8,7 +8,7 @@ $output = [
     'error' => '參數不足',
 ];
 
-if(! isset($_POST['sid']) or isset($_POST['category']) or ! isset($_POST['date'])){
+if(! isset($_POST['sid']) or !isset($_POST['category']) or ! isset($_POST['date'])){
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -47,7 +47,7 @@ if($stmt->rowCount()){
 }else{
     $output['error'] = '資料沒有修改';
 }
-
+echo $stmt;
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
 
 

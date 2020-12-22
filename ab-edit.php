@@ -50,7 +50,7 @@ if(empty($row)){
 
                     <form name="form1" novalidate onsubmit="checkForm();return false;">
                     <!-- <form name="form1" method="post"> -->
-                        <input type="hidden" name="sid" value="<?= $sid ?>"
+                        <input type="hidden" name="sid" value="<?= $sid ?>">
                         <div class="form-group">
                             <label for="category">課程分類</label>
                             <input type="text" class="form-control" id="category" name="category"
@@ -70,7 +70,7 @@ if(empty($row)){
                             <label for="amount">數量</label>
                             <input type="number" class="form-control" id="amount" name="amount">
                         </div>
-                        <button type="submit" class="btn btn-primary">新增</button>
+                        <button type="submit" class="btn btn-primary">修改</button>
                     </form>
 
 
