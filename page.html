@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <?= isset($title) ? $title.'-' : '123' ?>通訊錄管理
+    </title>
+    <link rel="stylesheet" href="bootstrap\css\bootstrap.css">
+    <link rel="stylesheet" href="fontawesome\css\all.css">
+</head>
+<style>
+    .BOX-P {
+        height: 500px;
+        width: 500px;
+        background-color: rgb(226, 115, 115);
+    }
+
+    .BOX-T {
+        height: 900px;
+        width: 100%;
+        background-color: rgb(143, 233, 143);
+    }
+
+    .table {
+        background-color: rgb(162, 20, 180);
+        width: ;
+    }
+
+    nav{
+        background-color: #819ca5;
+    }
+    a{
+        color: #546e76;
+    }
+</style>
+<body>
+ <nav class="navbar navbar-expand-lg ">
+    <a class="navbar-brand" href="index01.php">Index</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item  <?= $pageName == 'ab-list' ? 'active' : ''; ?>">
+                <a class="nav-link" href="ab-list.php">課程列表 </a>
+            </li>
+            <li class="nav-item  <?= $pageName == 'ab-insert' ? 'active' : ''; ?>">
+                <a class="nav-link" href="ab-insert.php">新增課程 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container d-flex justify-content-center">
+    <div class="row d-flex align-items-center">
+        <div class="col-6">
+            <div class="BOX-P">1號</div>
+            <div class="BOX-T">2號
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twi11111111111111111111111111
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script src=">js/jquery-3.5.1.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.js"></script>   
+</body>

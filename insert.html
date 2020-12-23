@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <?= isset($title) ? $title.'-' : '123' ?>通訊錄管理
+    </title>
+    <link rel="stylesheet" href="bootstrap\css\bootstrap.css">
+    <link rel="stylesheet" href="fontawesome\css\all.css">
+</head>
+<style>
+    .BOX-P {
+        height: 300px;
+        width: 300px;
+        background-color: rgb(226, 115, 115);
+    }
+    .BOX-P img{
+        width: 100%;
+        margin:10px  0 ;
+    }
+
+
+
+
+  
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index01.php">Index</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item  <?= $pageName == 'ab-list' ? 'active' : ''; ?>">
+                <a class="nav-link" href="ab-list.php">課程列表 </a>
+            </li>
+            <li class="nav-item  <?= $pageName == 'ab-insert' ? 'active' : ''; ?>">
+                <a class="nav-link" href="ab-insert.php">新增課程 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container d-flex justify-content-center my-5">
+    <div class="row ">
+        <div class="col-6 box">
+            <div class="BOX-P">
+            <img src="./img/img-main4@2x (1).jpg" alt="">    
+                1號
+            </div>
+        </div>
+
+        <div class="col-6">
+            <!-- 表單 -->
+            <form class="form-insert mx-2">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary col">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+
+    </div>
+
+</div>
+
+
+<script src=">js/jquery-3.5.1.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.js"></script>

@@ -10,54 +10,86 @@ $pageName = 'ab-insert';
     .form-text {
         color: red;
     }
+
+    .PIC {
+        /* height: 100%;
+        width: 500px; */
+        background-color: black;
+    }
+
+    h2{
+        /* background-color: black; */
+    }
+    .title{
+        border-bottom: 2px solid black;
+    }
+    .card{
+        border:none;
+    }
+
+    
 </style>
 
 
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-lg-6">
-
-            <div class="alert alert-danger" role="alert" id="info" style="display: none;">
-                錯誤
-            </div>
-
-
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">新增課程</h5>
-
-                    <form name="form1" novalidate onsubmit="checkForm();return false;">
-                        <div class="form-group">
-                            <label for="category">課程分類</label>
-                            <input type="text" class="form-control" id="category" name="category">
-                            <small class="form-text error-msg" style="display: none">請選擇課程分類</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="classname">課程名稱</label>
-                            <input type="text" class="form-control" id="classname" name="classname">
-                        </div>
-                        <div class="form-group">
-                            <label for="date">上課日期</label>
-                            <input type="datetime-local" class="form-control" id="date" name="date">
-                        </div>
-                        <div class="form-group">
-                            <label for="amount">數量</label>
-                            <input type="number" class="form-control" id="amount" name="amount">
-                        </div>
-                        <button type="submit" class="btn btn-primary">新增</button>
-                    </form>
-
-
-                </div>
+<div class="container d-flex justify-content-center">
+    <div class="container2 ">
+        <div class="row d-flex justify-content-center">
+            <div class="title my-3">
+                <h2>陶藝課程體驗</h2>
             </div>
 
         </div>
+        <div class="row d-flex align-items-center">
+            <!-- 圖片及介紹 -->
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/89fc747bf7c7cd1c076808059930a1e570de519b.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 新增表單 -->
+            <div class="col">
+
+                <div class="alert alert-danger" role="alert" id="info" style="display: none;">
+                    錯誤
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <form name="form1" novalidate onsubmit="checkForm();return false;">
+                            <div class="form-group">
+                                <label for="category">課程分類</label>
+                                <input type="text" class="form-control" id="category" name="category">
+                                <small class="form-text error-msg" style="display: none">請選擇課程分類</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="classname">課程名稱</label>
+                                <input type="text" class="form-control" id="classname" name="classname">
+                            </div>
+                            <div class="form-group">
+                                <label for="date">上課日期</label>
+                                <input type="datetime-local" class="form-control" id="date" name="date">
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">數量</label>
+                                <input type="number" class="form-control" id="amount" name="amount">
+                            </div>
+                            <button type="submit" class="btn btn-primary col">新增</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-
 </div>
+
+
+
+
 <?php include __DIR__ . '/parts/scripts.php'; ?>
 
 <script>

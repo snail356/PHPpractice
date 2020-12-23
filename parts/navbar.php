@@ -5,15 +5,28 @@ if (!isset($pageName)) $pageName = '';
 
 
 <style>
-  .navbar .nav-item.active {
-    background-color: pink;
+  nav{
+        background-color: #819ca5;
+    }
+    a{
+        color: #546e76;
+    }
+    a:hover{
+        color: pink;
+    }
+    
+    /* .active a{
+        color: #fff;
+    } */
+    .navbar .nav-item.active a{
+    color: white;
     border-radius: 10px;
 
   }
 </style>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg  ">
   <a class="navbar-brand" href="<?php WEB_ROOT ?>index01.php">Index</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -26,12 +39,6 @@ if (!isset($pageName)) $pageName = '';
       </li>
       <li class="nav-item  <?= $pageName == 'ab-insert' ? 'active' : ''; ?>">
         <a class="nav-link" href="<?php WEB_ROOT ?>ab-insert.php">新增課程 </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
