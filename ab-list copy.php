@@ -1,6 +1,6 @@
   <?php
     require __DIR__ . '/db_connect.php';
-    require __DIR__ . '/is_admin.php';
+    // require __DIR__ . '/is_admin.php';
 
 
     // 沒有登入顯示頁面設定

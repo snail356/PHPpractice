@@ -1,6 +1,6 @@
 <?php
 // require __DIR__. '/is_admin.php';
-require __DIR__. '/db_connect.php';
+require __DIR__ . '/db_connect.php';
 
 $output = [
     'success' => false,
@@ -8,7 +8,7 @@ $output = [
     'error' => '參數不足',
 ];
 
-if(! isset($_POST['category']) or ! isset($_POST['date'])){
+if (!isset($_POST['category']) or !isset($_POST['date'])) {
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -34,18 +34,17 @@ $sql = "INSERT INTO `snail_class`( `category`, `classname`, `date`, `amount`
 $stmt = $pdo->prepare($sql);
 
 $stmt->execute([
-        $_POST['category'],
-        $_POST['classname'],
-        $_POST['date'],
-        // empty($_POST['birthday']) ? NULL : $_POST['birthday'],
-        $_POST['amount'],
+    $_POST['category'],
+    $_POST['classname'],
+    $_POST['date'],
+    // empty($_POST['birthday']) ? NULL : $_POST['birthday'],
+    $_POST['amount'],
 ]);
 
 $output['rowCount'] = $stmt->rowCount();
-if($stmt->rowCount()){
+if ($stmt->rowCount()) {
     $output['success'] = true;
     unset($output['error']);
 }
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
-
