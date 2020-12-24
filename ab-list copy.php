@@ -186,7 +186,7 @@
                           </li>
 
                           <!-- 計算頁數的迴圈 -->
-                          <?php for ($i = $page - 5; $i <= $page + 5; $i++) :
+                          <?php for ($i = $page - 2; $i <= $page + 2; $i++) :
                                 if ($i >= 1 and $i <= $totalPages) :
                             ?>
 
