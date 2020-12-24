@@ -47,14 +47,15 @@
           /* background-color: black; */
           background-image: url(img/89fc747bf7c7cd1c076808059930a1e570de519b.jpg);
       }
-      .card{
+
+      .card {
           margin-top: 15px;
           margin-bottom: -8px;
       }
 
       .card-body {
           padding: 15px;
-          
+
       }
 
       .remove-icon a i {
@@ -116,15 +117,10 @@
           margin-bottom: 1px;
       }
 
-      nav.pageline{
+      nav.pageline {
           border: none;
           background-color: #fff;
       }
-      nav.pageline{
-          border: none;
-          background-color: #fff;
-      }
-
   </style>
 
   <div class="container">
@@ -199,7 +195,7 @@
                           <?php endif;
                             endfor ?>
 
-
+ 
                           <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>"><a class="page-link" href="?page=<?= $page + 1 ?> ">
                                   <i class="fas fa-angle-right"></i></a>
                           </li>

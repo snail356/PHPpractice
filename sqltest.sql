@@ -39,3 +39,6 @@ DELETE FROM `snail_class` WHERE sid = $sid
 
 -- 更新
 UPDATE `snail_class` SET `sid`=[value-1],`category`=[value-2],`classname`=[value-3],`date`=[value-4],`amount`=[value-5] WHERE 1
+
+--搜尋
+SELECT * FROM `snail_admins` WHERE `account`='test' AND `password`='123'
