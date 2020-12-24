@@ -30,11 +30,22 @@
     // 搜尋                                         如果沒有就給空字串
     $search = isset($_GET['search']) ? $_GET['search'] : '';
 
+    // 如果有search就丟入
+    $params = [];
+
+
+
     // 定義where變數，用SQL語法給1當作這個子句的開頭
     $where = 'WHERE 1';
     if (!empty($search)) {
         $where .= sprintf(" AND `classname` LIKE %s", $pdo->quote('%' . $search . '%'));
+        $params['search'] = $search;
     }
+
+
+
+
+
 
 
 
@@ -175,8 +186,7 @@
           <div class=" d-flex flex-row-reverse my-2">
               <form class="form-inline my-2 my-lg-0">
                   <!-- 記得要加name 搜尋用G -->
-                  <input class="form-control mr-sm-2" type="search" name="search" value="<?= htmlentities($search) ?>"
-                  placeholder="Search" aria-label="Search">
+                  <input class="form-control mr-sm-2" type="search" name="search" value="<?= htmlentities($search) ?>" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
           </div>
@@ -230,10 +240,17 @@
               <div class="col">
                   <nav class="pageline" aria-label="Page navigation example">
                       <ul class="pagination">
-                          <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>"><a class="page-link" href="?page=1 ">
+                          <!-- <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>"><a class="page-link" href="?page=1 "> -->
+                          <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                              <a class="page-link" href="?
+                              <?php $params['page'] = 1;
+                                echo http_build_query($params); ?>">
+                                  <!-- 把page放入params陣列後，呼叫變為query格式的字串 -->
                                   <i class="fas fa-angle-double-left"></i></a>
                           </li>
-                          <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>"><a class="page-link" href="?page=<?= $page - 1 ?> ">
+                          <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>"><a class="page-link" href="?
+                          <?php $params['page'] = $page - 1;
+                            echo http_build_query($params); ?> ">
                                   <i class="fas fa-angle-left"></i></a>
                           </li>
 
@@ -245,17 +262,20 @@
 
                                   <!-- ?是在同一頁面有不同的值 -->
                                   <li class="page-item <?= $page == $i ? 'active' : '' ?>">
-                                      <a class="page-link" href="?page=<?= $i ?>">
+                                      <a class="page-link" href="?<?php $params['page'] = $i;
+                                echo http_build_query($params); ?>">
                                           <?= $i ?></a>
                                   </li>
                           <?php endif;
                             endfor ?>
 
 
-                          <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>"><a class="page-link" href="?page=<?= $page + 1 ?> ">
+                          <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>"><a class="page-link" href="?<?php $params['page'] = $page + 1;
+                                echo http_build_query($params); ?>">
                                   <i class="fas fa-angle-right"></i></a>
                           </li>
-                          <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>"><a class="page-link" href="?page=<?= $totalPages ?> ">
+                          <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>"><a class="page-link" href="?<?php $params['page'] = $totalPages;
+                                echo http_build_query($params); ?>">
                                   <i class="fas fa-angle-double-right"></i></i></a>
                           </li>
                       </ul>
@@ -264,7 +284,7 @@
           </div>
       </div>
   </div>
-
+<!-- <?php print_r($params); ?> -->
 
   <?php require __DIR__ . '/parts/scripts.php'; ?>
   <script>
