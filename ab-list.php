@@ -43,6 +43,7 @@
       .remove-icon a i {
           color: red;
       }
+      
   </style>
 
   <div class="container">

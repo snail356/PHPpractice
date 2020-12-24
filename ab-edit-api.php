@@ -47,7 +47,7 @@ if($stmt->rowCount()){
 }else{
     $output['error'] = '資料沒有修改';
 }
-echo $stmt;
+
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
 
 

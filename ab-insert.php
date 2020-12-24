@@ -17,25 +17,41 @@ $pageName = 'ab-insert';
         background-color: black;
     }
 
-    h2{
-        /* background-color: black; */
-    }
-    .title{
-        border-bottom: 2px solid black;
-    }
-    .card{
-        border:none;
+    h5 {
+        color: #c47b00;
     }
 
-    
+    .card {
+        border: none;
+    }
+
+    .form-control {
+        border: 1px dashed pink;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-radius: 0%;
+    }
+
+    .btn {
+        background-color: #c47b00;
+        border-color: #c47b00;
+        border-radius: 0%;
+    }
+
+    label {
+        color: #c47b00;
+    }
 </style>
 
-
+<div class="alert alert-danger" role="alert" id="info" style="display: none;">
+    錯誤
+</div>
 <div class="container d-flex justify-content-center">
     <div class="container2 ">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center" style="border-bottom:1px solid #fcaa3e">
             <div class="title my-3">
-                <h2>陶藝課程體驗</h2>
+                <h5>陶藝課程體驗</h5>
             </div>
 
         </div>
@@ -52,9 +68,9 @@ $pageName = 'ab-insert';
             <!-- 新增表單 -->
             <div class="col">
 
-                <div class="alert alert-danger" role="alert" id="info" style="display: none;">
+                <!-- <div class="alert alert-danger" role="alert" id="info" style="display: none;">
                     錯誤
-                </div>
+                </div> -->
 
                 <div class="card">
                     <div class="card-body">
@@ -131,7 +147,6 @@ $pageName = 'ab-insert';
                         info.classList.remove('alert-success');
                         info.classList.add('alert-danger');
                         info.innerHTML = '新增失敗';
-
                     }
                     info.style.display = 'block';
                 });

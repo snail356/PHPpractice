@@ -34,8 +34,8 @@ if (!isset($pageName)) $pageName = '';
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item  <?= $pageName == 'ab-list' ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?php WEB_ROOT ?>ab-list.php">課程列表 </a>
+      <li class="nav-item  <?= $pageName == 'ab-list copy' ? 'active' : ''; ?>">
+        <a class="nav-link" href="<?php WEB_ROOT ?>ab-list copy.php">課程列表 </a>
       </li>
       <li class="nav-item  <?= $pageName == 'ab-insert' ? 'active' : ''; ?>">
         <a class="nav-link" href="<?php WEB_ROOT ?>ab-insert.php">新增課程 </a>
