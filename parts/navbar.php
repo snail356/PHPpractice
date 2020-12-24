@@ -54,17 +54,12 @@ if (!isset($pageName)) $pageName = '';
         </li>
       <?php else : ?>
         <li class="nav-item  <?= $pageName == 'login' ? 'active' : ''; ?>">
-          <a class="nav-link" href="<?php WEB_ROOT ?>login.php">登入2</a>
+          <a class="nav-link" href="<?php WEB_ROOT ?>login.php">登入</a>
         </li>
       <?php endif ?>
 
 
 
-    <form class="form-inline my-2 my-lg-0">
-                                                 <!-- 記得要加name 搜尋用GET -->
-      <input class="form-control mr-sm-2" type="search" name="search"
-      placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    
   </div>
 </nav>

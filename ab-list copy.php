@@ -1,6 +1,6 @@
   <?php
     require __DIR__ . '/db_connect.php';
-    require __DIR__ .'/is_admin.php';
+    require __DIR__ . '/is_admin.php';
 
 
     // 沒有登入顯示頁面設定
@@ -30,11 +30,11 @@
     // 搜尋                                         如果沒有就給空字串
     $search = isset($_GET['search']) ? $_GET['search'] : '';
 
-// 定義where變數，用SQL語法給1當作這個子句的開頭
-$where = 'WHERE 1';
-if(!empty($search)){
-    $where .= sprintf(" AND `classname` LIKE %s",$pdo->quote('%'.$search.'%'));
-}
+    // 定義where變數，用SQL語法給1當作這個子句的開頭
+    $where = 'WHERE 1';
+    if (!empty($search)) {
+        $where .= sprintf(" AND `classname` LIKE %s", $pdo->quote('%' . $search . '%'));
+    }
 
 
 
@@ -48,8 +48,9 @@ if(!empty($search)){
 
 
     // 限定page的範圍
-    if ($page < 1) $page = 1;
+    // if ($page < 1) $page = 1; 放到下面避免
     if ($page > $totalPages) $page = $totalPages;
+    if ($page < 1) $page = 1;
 
     // SELECT * FROM `snail_class` LIMIT 4,3  LIMIT(索引值,筆數)
     $p_sql = sprintf(
@@ -170,7 +171,16 @@ if(!empty($search)){
   </style>
 
   <div class="container">
-
+      <div class="col">
+          <div class=" d-flex flex-row-reverse my-2">
+              <form class="form-inline my-2 my-lg-0">
+                  <!-- 記得要加name 搜尋用G -->
+                  <input class="form-control mr-sm-2" type="search" name="search" value="<?= htmlentities($search) ?>"
+                  placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+          </div>
+      </div>
 
       <div class="row">
 
