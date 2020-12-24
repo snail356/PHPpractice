@@ -23,6 +23,9 @@
         ($page - 1) * $perPage,
         $perPage
     );
+    echo '<-- ';
+    echo $p_sql ;
+    echo ' -->';
 
     $stmt = $pdo->query($p_sql);
     // $stmt = $pdo->query("SELECT * FROM snail_class ORDER BY sid DESC");

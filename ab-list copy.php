@@ -1,14 +1,48 @@
   <?php
     require __DIR__ . '/db_connect.php';
+    require __DIR__ .'/is_admin.php';
+
+
+    // 沒有登入顯示頁面設定
+    if (!isset($_SESSION['admin'])) {
+        include __DIR__ . '/ab-list-noadmin.php';
+        exit;
+    }
+    // 沒有登入顯示頁面設定
+
+
+
+
+
+
+
+
+
+
+
+
     $pageName = 'ab-list';
     // 由使用者給數值 如果有的話轉為整數，沒的話給1
     $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
+
+
+    // 搜尋                                         如果沒有就給空字串
+    $search = isset($_GET['search']) ? $_GET['search'] : '';
+
+// 定義where變數，用SQL語法給1當作這個子句的開頭
+$where = 'WHERE 1';
+if(!empty($search)){
+    $where .= sprintf(" AND `classname` LIKE %s",$pdo->quote('%'.$search.'%'));
+}
+
+
+
     $perPage = 2;
-    $t_sql = "SELECT COUNT(1) FROM snail_class";
+    $t_sql = "SELECT COUNT(1) FROM snail_class $where";
     //  拿到stmt 物件，拿索引是陣列NUM，只有一筆所以拿索引0
-    $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
-    // $totalRows = $pdo->query($t_sql)->fetch()['COUNT(1)'];
+    // $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+    $totalRows = $pdo->query($t_sql)->fetch()['COUNT(1)'];
     // 總共頁數
     $totalPages = ceil($totalRows / $perPage);
 
@@ -19,7 +53,9 @@
 
     // SELECT * FROM `snail_class` LIMIT 4,3  LIMIT(索引值,筆數)
     $p_sql = sprintf(
-        "SELECT * FROM snail_class ORDER BY sid DESC LIMIT %s, %s",
+        "SELECT * FROM snail_class %s
+        ORDER BY sid DESC LIMIT %s, %s",
+        $where,
         ($page - 1) * $perPage,
         $perPage
     );
@@ -121,6 +157,16 @@
           border: none;
           background-color: #fff;
       }
+
+      /* page列變色 */
+      .page-item>a {
+          color: grey;
+      }
+
+      /* #e2e678 */
+      .page-item.active .page-link {
+          background-color: #819ca5;
+      }
   </style>
 
   <div class="container">
@@ -195,7 +241,7 @@
                           <?php endif;
                             endfor ?>
 
- 
+
                           <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>"><a class="page-link" href="?page=<?= $page + 1 ?> ">
                                   <i class="fas fa-angle-right"></i></a>
                           </li>
