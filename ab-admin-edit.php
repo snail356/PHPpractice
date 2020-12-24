@@ -73,13 +73,13 @@ $pageName = 'ab-insert';
                             <input type="file" id="avatar" name="avatar" accept="image/*" onchange="fileChange()" style="display: none">
                             <div class="form-group">
                                 <label for="account">account</label>
-                                <input type="text" class="form-control" id="account" name="account">
-                                <small class="form-text error-msg" style="display: none">請選擇課程分類</small>
+                                <input type="text" class="form-control" value="<?= $_SESSION['admin']['account']?>" id="account" name="account">
+                                <!-- <small class="form-text error-msg" style="display: none">請選擇課程分類</small> -->
                             </div>
                             <div class="form-group">
                                 <label for="nickname">nickname</label>
-                                <input type="text" class="form-control" id="nickname" name="nickname">
-                            </div>
+                                <input type="text" class="form-control" value="<?= $_SESSION['admin']['nickname']?>" id="nickname" name="nickname">
+                            </div>  
                             <div class="form-group">
                                 <label for="password">**原密碼</label>
                                 <input type="password" class="form-control" id="password" name="password" require>
